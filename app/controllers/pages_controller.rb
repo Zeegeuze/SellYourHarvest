@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
-  def T&Q
+  def index
+  end
+
+  def TQ
   end
 
   def FAQ

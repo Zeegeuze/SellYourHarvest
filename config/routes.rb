@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :customers
-  resources :orders
 
   resources :sellers do
-    resources :products
+    resources :products do
+      resources :orders
+    end
   end
 
   root to: 'pages#index'

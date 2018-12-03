@@ -1,14 +1,15 @@
 class OrdersController < ApplicationController
  before_action :set_order, only: [:show, :edit, :update, :destroy]
   def new
+    @customer = @user_id
     @seller = Seller.find(params[:seller_id])
-    @customer = Customer.find(params[:customer_id])
+    @product = Product.find(params[:product_id])
     @order = Order.new
   end
 
   def index
     @seller = Seller.find(params[:seller_id])
-    @customer = Customer.find(params[:customer_id])
+    @product = Product.find(params[:product_id])
     if params[:query].present?
       sql_query = " orders.products.name ILIKE :query"
       @orders = Order.where(sql_query, query: "%#{params[:query]}%")
@@ -19,11 +20,13 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @customer = @user_id
     @seller = Seller.find(params[:seller_id])
-    @customer = Customer.find(params[:customer_id])
+    @product = Product.find(params[:product_id])
     @order = Order.new(order_params)
-    if @order.save
-      redirect_to orders_path
+    @order.product = Product.find(params[:product_id])
+    if @order.save!
+      redirect_to seller_product_orders_path(@seller, @product, @order)
     else
       render :new
     end
@@ -55,7 +58,7 @@ class OrdersController < ApplicationController
   private
   def set_order
     @seller = Seller.find(params[:seller_id])
-    @customer = Customer.find(params[:customer_id])
+    @product = Product.find(params[:product_id])
     @order = Order.find(params[:id])
   end
 

@@ -1,1 +1,7 @@
-new.html.erb
+<h1>Add a new order</h1>
+
+<%= simple_form_for [@order, @customer, @product] do |f| %>
+  <%= f.input :size, label: "How many do you want?" %>
+  <%= f.button :submit %>
+<% end %>
+

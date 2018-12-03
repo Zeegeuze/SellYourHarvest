@@ -1,1 +1,10 @@
-index.html.erb
+<h1>Choose your product</h1>
+
+<% @seller.products.each do |product| %>
+  <div class="card card-wrapper card-text-block">
+    <%= product.name %>
+    <%= product.amount %>
+    <%= product.delivery_option %>
+    <%= product.stars %>
+  </div>
+<% end %>

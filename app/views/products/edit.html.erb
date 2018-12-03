@@ -1,1 +1,8 @@
-edit.html.erb
+<h1>Edit your product</h1>
+
+<%= simple_form_for [@seller, @product] do |f| %>
+  <%= f.input :name, label: "Enter the name of the product" %>
+  <%= f.input :amount, label: "Enter the amount" %>
+  <%= f.input :delivery_option, as: :select, collection: ["Pick up", "Pick on the field", "Delivery"] %>
+  <%= f.button :submit %>
+<% end %>

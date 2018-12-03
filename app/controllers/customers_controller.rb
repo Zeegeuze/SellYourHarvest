@@ -5,12 +5,12 @@ class CustomersController < ApplicationController
   end
 
   def index
-    @customer = Customer.all
+    @customers = Customer.all
   end
 
   def create
     @customer = Customer.new(customer_params)
-    if @set_customer.save
+    if @customer.save!
       redirect_to customers_path
     else
       render :new
@@ -34,7 +34,7 @@ class CustomersController < ApplicationController
   def destroy
     @customer.destroy
     if @customer.destroy
-      redirect_to customer_path
+      redirect_to customers_path
     else
       render :new
     end

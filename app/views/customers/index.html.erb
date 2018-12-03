@@ -1,1 +1,9 @@
-index.html.erb
+<h1>Overview of Customers</h1>
+
+<% @customers.each do |customer| %>
+  <div class="card card-wrapper card-text-block">
+    <h1><%= customer.last_name %>, <%= customer.first_name %></h1>
+    <p><%= customer.city %></p>
+    <p><%= customer.created_at %></p>
+  </div>
+<% end %>

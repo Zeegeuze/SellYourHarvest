@@ -51,4 +51,3 @@ before_action :set_seller, only: [:show, :edit, :update, :destroy]
     params.require(:seller).permit(:company_name, :contact_person, :address)
   end
 end
-end

@@ -1,1 +1,10 @@
-show.html.erb
+<h1><%= @product.name %></h1>
+
+<p><%= @product.amount %></p>
+<p><%= @product.delivery_option %></p>
+<p><%= @product.stars %></p>
+
+<%= link_to "Delete this item", seller_product_path(@seller, @product),
+  method: :delete,
+  data: {confirm: "Are you sure?"},
+  class: "button-red button right-top-navbar-btn" %>

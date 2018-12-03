@@ -1,1 +1,8 @@
-new.html.erb
+<h1>Add a new customer</h1>
+
+<%= simple_form_for [@customer] do |f| %>
+  <%= f.input :first_name, label: "Enter your first name" %>
+  <%= f.input :last_name, label: "Enter your last name" %>
+  <%= f.input :city, label: "Enter your city" %>
+  <%= f.button :submit %>
+<% end %>

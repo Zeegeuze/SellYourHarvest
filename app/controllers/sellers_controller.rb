@@ -34,7 +34,7 @@ before_action :set_seller, only: [:show, :edit, :update, :destroy]
   def destroy
     @seller.destroy
     if @seller.destroy
-      redirect_to sellers_path
+      redirect_to root_path
     else
       render :new
     end

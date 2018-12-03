@@ -1,1 +1,13 @@
-edit.html.erb
+<h1>Modify your profile</h1>
+
+<%= simple_form_for [@customer] do |f| %>
+  <%= f.input :first_name, label: "Enter your first name" %>
+  <%= f.input :last_name, label: "Enter your last name" %>
+  <%= f.input :city, label: "Enter your city" %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to "Delete your profile", customer_path(@customer),
+  method: :delete,
+  data: {confirm: "Are you sure?"},
+  class: "btn btn-danger" %>

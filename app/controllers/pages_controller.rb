@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
-  def index
+  skip_before_action :authenticate_user!
+
+  def home
   end
 
   def TQ

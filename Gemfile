@@ -34,9 +34,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'autoprefixer-rails'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap-sass'
 gem 'devise', '~> 4.5'
+gem 'font-awesome-sass', '~> 5.5', '>= 5.5.0.1'
 gem 'simple_form', '~> 4.1'
 
 group :development, :test do

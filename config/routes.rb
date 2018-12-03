@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'pages#index'
+  root to: 'pages#home'
   get 'T&Q', to: 'pages#TQ', as: :TQ
   get 'FAQ', to: 'pages#FAQ', as: :FAQ
   get 'contact', to: 'pages#contact', as: :contact

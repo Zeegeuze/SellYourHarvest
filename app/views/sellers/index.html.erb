@@ -1,1 +1,9 @@
-index.html.erb
+<h1>Overview of all sellers</h1>
+
+<% @sellers.each do |seller| %>
+  <div class="card">
+    <h3><%= seller.company_name %></h3>
+    <p><%= seller.contact_person %></p>
+    <p><%= seller.address %></p>
+  </div>
+<% end %>

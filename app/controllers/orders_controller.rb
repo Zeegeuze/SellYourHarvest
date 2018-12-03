@@ -1,17 +1,19 @@
 class OrdersController < ApplicationController
+ before_action :authenticate_user!
  before_action :set_order, only: [:show, :edit, :update, :destroy]
   def new
-    @customer = @user_id
+    @customer = @current_user
     @seller = Seller.find(params[:seller_id])
     @product = Product.find(params[:product_id])
     @order = Order.new
+    authorize @order
   end
 
   def index
     @seller = Seller.find(params[:seller_id])
     @product = Product.find(params[:product_id])
     if params[:query].present?
-      sql_query = " orders.products.name ILIKE :query"
+      sql_query = "orders.products.name ILIKE :query"
       @orders = Order.where(sql_query, query: "%#{params[:query]}%")
     else
       @orders = Order.all
@@ -20,11 +22,12 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @customer = @user_id
+    @customer = @current_user
     @seller = Seller.find(params[:seller_id])
     @product = Product.find(params[:product_id])
     @order = Order.new(order_params)
     @order.product = Product.find(params[:product_id])
+    authorize @order
     if @order.save!
       redirect_to seller_product_orders_path(@seller, @product, @order)
     else

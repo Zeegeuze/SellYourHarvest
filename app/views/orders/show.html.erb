@@ -1,1 +1,8 @@
-show.html.erb
+<h1>Orderinformation</h1>
+
+<div class="card card-wrapper card-text-block">
+    <h3><%= @product.name %></h3>
+    <p>Sold by: <%= @seller.company_name %></p>
+    <p>Size: <%= @order.size %></p>
+    <p>Order date: <%= @order.created_at %></p>
+  </div>

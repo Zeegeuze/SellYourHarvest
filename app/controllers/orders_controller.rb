@@ -2,11 +2,11 @@ class OrdersController < ApplicationController
  before_action :authenticate_user!
  before_action :set_order, only: [:show, :edit, :update, :destroy]
   def new
-    @customer = @current_user
+    @user = current_user
     @seller = Seller.find(params[:seller_id])
     @product = Product.find(params[:product_id])
     @order = Order.new
-    authorize @order
+
   end
 
   def index
@@ -22,14 +22,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @customer = @current_user
+    @user = current_user
     @seller = Seller.find(params[:seller_id])
     @product = Product.find(params[:product_id])
     @order = Order.new(order_params)
     @order.product = Product.find(params[:product_id])
-    authorize @order
     if @order.save!
-      redirect_to seller_product_orders_path(@seller, @product, @order)
+      redirect_to seller_product_orders_path(@seller, @product)
     else
       render :new
     end
@@ -43,7 +42,7 @@ class OrdersController < ApplicationController
 
   def update
     if @order.update(order_params)
-      redirect_to order_path(@order)
+      redirect_to seller_product_order_path(@seller, @product, @order)
     else
       render :new
     end
@@ -52,7 +51,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     if @order.destroy
-      redirect_to orders_path
+      redirect_to seller_product_orders_path(@seller, @product)
     else
       render :new
     end
@@ -60,6 +59,7 @@ class OrdersController < ApplicationController
 
   private
   def set_order
+    @user = current_user
     @seller = Seller.find(params[:seller_id])
     @product = Product.find(params[:product_id])
     @order = Order.find(params[:id])
@@ -68,6 +68,6 @@ class OrdersController < ApplicationController
   def order_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-    params.require(:order).permit(:size, :customer_id, :product_id)
+    params.require(:order).permit(:size, :product_id)
   end
 end

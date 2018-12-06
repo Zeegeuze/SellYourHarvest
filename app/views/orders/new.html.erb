@@ -2,6 +2,7 @@
 
 <%= simple_form_for [@seller, @product, @order] do |f| %>
   <%= f.input :size, label: "How many do you want?" %>
-  <%= f.button :submit %>
+  <%= f.button :submit %> <%= link_to "Back to all orders", seller_product_orders_path(@seller, @product), class: "btn btn-primary" %>
 <% end %>
+
 

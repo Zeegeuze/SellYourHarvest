@@ -10,7 +10,11 @@
   <% end %>
 </div>
 
-<%= link_to "Delete your order", seller_product_order_path(@seller, @product, @order),
+
+<div><%= link_to "Back to all orders", seller_product_orders_path(@seller, @product), class: "btn btn-primary" %>
+    </div>
+<div><%= link_to "Delete your order", seller_product_order_path(@seller, @product, @order),
   method: :delete,
   data: {confirm: "Are you sure?"},
   class: "btn btn-danger" %>
+</div>

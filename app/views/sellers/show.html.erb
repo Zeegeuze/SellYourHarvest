@@ -17,6 +17,7 @@
     </div>
   </div>
 <% end %>
+<%= link_to "Add a new product", new_seller_product_path(@seller), class: "btn btn-primary" %>
 
 
 <h3>Find your most recent orders below:</h3>
@@ -26,7 +27,6 @@
     <p>Size: <%= order.size %></p>
     <p>Customer: <%= order.user.first_name  %> <%= order.user.last_name %></p>
     <p>Order date: <%= order.created_at %></p>
-    <div><%= link_to "View", seller_product_order_path(@seller, @product, order), class: "btn btn-primary" %>
-    </div>
+    <%= link_to "View", seller_product_order_path(@seller, order.product, order), class: "btn btn-primary" %>
   </div>
 <% end %>

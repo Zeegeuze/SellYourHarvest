@@ -11,7 +11,7 @@ before_action :set_seller, only: [:show, :edit, :update, :destroy]
   def create
     @seller = Seller.new(seller_params)
     if @seller.save
-      redirect_to sellers_path
+      redirect_to seller_path(@seller)
     else
       render :new
     end

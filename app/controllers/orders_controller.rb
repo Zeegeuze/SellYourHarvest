@@ -27,6 +27,7 @@ class OrdersController < ApplicationController
     @product = Product.find(params[:product_id])
     @order = Order.new(order_params)
     @order.product = Product.find(params[:product_id])
+    @order.user = current_user
     if @order.save!
       redirect_to seller_product_orders_path(@seller, @product)
     else

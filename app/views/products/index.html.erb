@@ -6,5 +6,12 @@
     <%= product.amount %>
     <%= product.delivery_option %>
     <%= product.stars %>
+    <div><%= link_to "View", seller_product_path(@seller, product), class: "btn btn-primary" %>
+    <%= link_to "Edit", edit_seller_product_path(@seller, product), class: "btn btn-primary" %>
+    <%= link_to "Delete", seller_product_path(@seller, product),
+      method: :delete,
+      data: {confirm: "Are you sure?"},
+      class: "btn btn-danger" %>
+    </div>
   </div>
 <% end %>

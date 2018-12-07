@@ -6,11 +6,11 @@
     <p>Sold by: <%= @seller.company_name %></p>
     <p>Size: <%= order.size %></p>
     <p>Order date: <%= order.created_at %></p>
-    <div><%= link_to "View", seller_product_order_path(@seller.id, @product.id, order.id), class: "btn btn-primary" %>
+    <div><%= link_to "View", seller_product_order_path(@seller, @product, order), class: "btn btn-primary" %>
     </div>
-    <div><%= link_to "Edit", edit_seller_product_order_path(@seller.id, @product.id, order.id), class: "btn btn-primary" %>
+    <div><%= link_to "Edit", edit_seller_product_order_path(@seller, @product, order), class: "btn btn-primary" %>
     </div>
-    <div><%= link_to "Delete", seller_product_order_path(@seller.id, @product.id, order.id),
+    <div><%= link_to "Delete", seller_product_order_path(@seller, @product, order),
       method: :delete,
       data: {confirm: "Are you sure?"},
       class: "btn btn-danger" %>

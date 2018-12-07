@@ -4,7 +4,15 @@
 <p><%= @product.delivery_option %></p>
 <p><%= @product.stars %></p>
 
-<%= link_to "Delete this item", seller_product_path(@seller, @product),
-  method: :delete,
-  data: {confirm: "Are you sure?"},
-  class: "btn btn-danger" %>
+<div>
+  <%= link_to "Edit", edit_seller_product_path(@seller, @product), class: "btn btn-primary" %>
+  <%= link_to "Delete this item", seller_product_path(@seller, @product),
+    method: :delete,
+    data: {confirm: "Are you sure?"},
+    class: "btn btn-danger" %>
+</div>
+
+<div>
+  <%= link_to "Book this product", new_seller_product_order_path(@seller, @product), class: "btn btn-primary" %>
+  <%= link_to "Back to overview", root_path, class: "btn btn-primary" %>
+</div>

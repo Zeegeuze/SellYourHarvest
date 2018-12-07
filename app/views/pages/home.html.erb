@@ -1,7 +1,9 @@
 This will become the homepage
 
+<div>
 <% @products.each do  | product | %>
   <h3><%= product.name %> <%= product.stars %></h3>
   <p>Total available: <%= product.amount %></p>
-  <p>From: <%= @seller.company_name %></p>
+  <p>From: <%= product.seller.company_name %></p>
 <% end %>
+</div>

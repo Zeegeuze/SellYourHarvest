@@ -5,5 +5,14 @@
     <h3><%= seller.company_name %></h3>
     <p><%= seller.contact_person %></p>
     <p><%= seller.address %></p>
+    <div><%= link_to "View", seller_path(seller), class: "btn btn-primary" %>
+    </div>
+    <div><%= link_to "Edit", edit_seller_path(seller), class: "btn btn-primary" %>
+    </div>
+    <div><%= link_to "Delete", seller_path(seller),
+      method: :delete,
+      data: {confirm: "Are you sure?"},
+      class: "btn btn-danger" %>
+    </div>
   </div>
 <% end %>

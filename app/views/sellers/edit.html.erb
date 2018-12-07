@@ -1,13 +1,13 @@
-<h1>Add a new seller</h1>
+<h1>Edit your profile</h1>
 
 <%= simple_form_for [@seller] do |f| %>
   <%= f.input :company_name, label: "Enter your company name" %>
   <%= f.input :contact_person, label: "Enter your contact person" %>
   <%= f.input :address, label: "Enter your address" %>
   <%= f.button :submit %>
-<% end %>
-
-<%= link_to "Delete your account", seller_path(@seller),
+  <%= link_to "View all your orders", seller_products_path(@seller), class: "btn btn-primary" %>
+  <%= link_to "Delete your account", seller_path(@seller),
   method: :delete,
   data: {confirm: "Are you sure?"},
   class: "btn btn-danger" %>
+<% end %>

@@ -3,7 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @products = Product.all
-    @seller = Product.seller
   end
 
   def TQ

@@ -1,7 +1,32 @@
-<h1><%= @product.name %></h1>
+<div>
+  <h1><%= @product.name %>
+  <% (@product.stars).times do %>
+    <span class="fa fa-star checked"></span>
+  <% end %>
+  <% (5 - @product.stars).times do %>
+    <span class="fa fa-star"></span>
+  <% end %></h1>
+</div>
 <p><%= @product.amount %></p>
 <p><%= @product.delivery_option %></p>
-<p><%= @product.stars %></p>
+
+<h3>Add a rating: </h3>
+<%= simple_form_for [@seller, @product] do |f| %>
+  <%= f.input :stars, as: :radio_buttons, collection: 1..5 %>
+  <%= f.button :submit %>
+<% end %>
+
+<div>
+  <h3>Test 2</h3>
+  <%= simple_form_for [@seller, @product] do |f| %>
+  <% f.input :stars, as: :radio_buttons do %>
+  <%= (1..5).each { |stars| f.radio_button :stars, class: "fa fa-star checked" } %>
+  <% end %>
+  <%= f.button :submit %>
+<% end %>
+
+
+</div>
 
 <div>
   <%= link_to "Edit", edit_seller_product_path(@seller, @product), class: "btn btn-primary" %>

@@ -48,6 +48,6 @@ before_action :set_seller, only: [:show, :edit, :update, :destroy]
   def seller_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-    params.require(:seller).permit(:company_name, :contact_person, :address)
+    params.require(:seller).permit(:company_name, :contact_person, :address, :email)
   end
 end

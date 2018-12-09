@@ -1,9 +1,10 @@
 <h1>Edit your profile</h1>
 
 <%= simple_form_for [@seller] do |f| %>
-  <%= f.input :company_name, label: "Enter your company name" %>
-  <%= f.input :contact_person, label: "Enter your contact person" %>
-  <%= f.input :address, label: "Enter your address" %>
+  <%= f.input :company_name, label: "Modify your company name" %>
+  <%= f.input :contact_person, label: "Modify your contact person" %>
+  <%= f.input :email, label: "Modify your email" %>
+  <%= f.input :address, label: "Modify your address" %>
   <%= f.button :submit %>
   <%= link_to "View all your orders", seller_products_path(@seller), class: "btn btn-primary" %>
   <%= link_to "Delete your account", seller_path(@seller),

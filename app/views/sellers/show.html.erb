@@ -1,5 +1,7 @@
 <h1>Welcome to your personal page, <%= @seller.contact_person %>! </h1>
 <p>Company: <%= @seller.company_name %></p>
+<p>Current email: <%= @seller.email %></p>
+<%= link_to "Correct your data", edit_seller_path(@seller), class: "btn btn-primary" %>
 
 <h3>Find an overview of your products below:</h3>
 <% @seller.products.each do |product| %>

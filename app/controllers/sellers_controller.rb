@@ -10,6 +10,7 @@ before_action :set_seller, only: [:show, :edit, :update, :destroy]
 
   def create
     @seller = Seller.new(seller_params)
+    @seller.email = current_user.email
     if @seller.save
       redirect_to seller_path(@seller)
     else

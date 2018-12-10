@@ -6,12 +6,14 @@ This will become the homepage
     <p>Total available: <%= product.amount %></p>
     <p>From: <%= product.seller.company_name %></p>
     <div><%= link_to "View", seller_product_path(product.seller, product), class: "btn btn-primary"%></div>
-    <div><%= link_to "Edit", edit_seller_product_path(product.seller, product), class: "btn btn-primary" %>
-    </div>
-    <div><%= link_to "Delete", seller_product_path(product.seller, product),
-      method: :delete,
-      data: {confirm: "Are you sure?"},
-      class: "btn btn-danger" %>
+    <% if user_signed_in? %>
+      <div><%= link_to "Edit", edit_seller_product_path(product.seller, product), class: "btn btn-primary" %>
+      </div>
+      <div><%= link_to "Delete", seller_product_path(product.seller, product),
+        method: :delete,
+        data: {confirm: "Are you sure?"},
+        class: "btn btn-danger" %>
+    <% end %>
     </div>
   <% end %>
 </div>

@@ -1,21 +1,27 @@
-<h1>Orderinformation</h1>
+<% if current_user == @order.user || current_user.email = @seller.email %>
 
-<div class="card card-wrapper card-text-block">
-  <h3><%= @product.name %></h3>
-  <p>Sold by: <%= @seller.company_name %></p>
-  <p>Size: <%= @order.size %></p>
-  <p>Order date: <%= @order.created_at %></p>
-</div>
+  <h1>Orderinformation</h1>
 
-<div><%= link_to "Back to all orders", seller_product_orders_path(@seller, @product), class: "btn btn-primary" %>
-</div>
-<div><%= link_to "Edit", edit_seller_product_order_path(@seller, @product, @order), class: "btn btn-primary" %>
-</div>
-<div><%= link_to "Delete", seller_product_order_path(@seller, @product, @order),
-  method: :delete,
-  data: {confirm: "Are you sure?"},
-  class: "btn btn-danger" %>
-</div>
+  <div class="card card-wrapper card-text-block">
+    <h3><%= @product.name %></h3>
+    <p>Sold by: <%= @seller.company_name %></p>
+    <p>Size: <%= @order.size %></p>
+    <p>Order date: <%= @order.created_at %></p>
+  </div>
 
-<div><%= link_to "Back to shop", root_path, class: "btn btn-primary" %>
-</div>
+  <div><%= link_to "Back to all orders", seller_product_orders_path(@seller, @product), class: "btn btn-primary" %>
+  </div>
+  <div><%= link_to "Edit", edit_seller_product_order_path(@seller, @product, @order), class: "btn btn-primary" %>
+  </div>
+  <div><%= link_to "Delete", seller_product_order_path(@seller, @product, @order),
+    method: :delete,
+    data: {confirm: "Are you sure?"},
+    class: "btn btn-danger" %>
+  </div>
+
+  <div><%= link_to "Back to shop", root_path, class: "btn btn-primary" %>
+  </div>
+
+<% else %>
+  <h1>Please note you are not authorised to view this page.</h1>
+<% end %>

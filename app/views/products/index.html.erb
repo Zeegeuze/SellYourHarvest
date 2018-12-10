@@ -1,4 +1,4 @@
-<h1>Choose your product</h1>
+<h1>Overview from the products of <%= @seller.company_name %></h1>
 
 <% @seller.products.each do |product| %>
   <div class="card card-wrapper card-text-block">
@@ -7,12 +7,17 @@
     <%= product.delivery_option %>
     <%= product.stars %>
     <div><%= link_to "View", seller_product_path(@seller, product), class: "btn btn-primary" %>
-    <%= link_to "Edit", edit_seller_product_path(@seller, product), class: "btn btn-primary" %>
-    <%= link_to "Delete", seller_product_path(@seller, product),
-      method: :delete,
-      data: {confirm: "Are you sure?"},
-      class: "btn btn-danger" %>
+    <% if current_user.email == @seller.email %>
+      <%= link_to "Edit", edit_seller_product_path(@seller, product), class: "btn btn-primary" %>
+      <%= link_to "Delete", seller_product_path(@seller, product),
+        method: :delete,
+        data: {confirm: "Are you sure?"},
+        class: "btn btn-danger" %>
+    <% end %>
     </div>
   </div>
-  <%= link_to "Add a product", new_seller_product_path(@seller), class: "btn btn-primary" %>
+  <% if current_user.email == @seller.email %>
+    <%= link_to "Add a product", new_seller_product_path(@seller), class: "btn btn-primary" %>
+  <% end %>
+  <%= link_to "Back to all orders", root_path, class: "btn btn-primary" %>
 <% end %>

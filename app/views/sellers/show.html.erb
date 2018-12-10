@@ -1,34 +1,42 @@
-<h1>Welcome to your personal page, <%= @seller.contact_person %>! </h1>
-<p>Company: <%= @seller.company_name %></p>
-<p>Current email: <%= @seller.email %></p>
-<%= link_to "Correct your data", edit_seller_path(@seller), class: "btn btn-primary" %>
+<% if current_user.email == @seller.email %>
 
-<h3>Find an overview of your products below:</h3>
-<% @seller.products.each do |product| %>
-  <div class="card card-wrapper card-text-block">
-    <%= product.name %>
-    <%= product.amount %>
-    <%= product.delivery_option %>
-    <%= product.stars %>
-    <div><%= link_to "View", seller_product_path(@seller, product), class: "btn btn-primary" %>
-    <%= link_to "Edit", edit_seller_product_path(@seller, product), class: "btn btn-primary" %>
-    <%= link_to "Delete", seller_product_path(@seller, product),
-      method: :delete,
-      data: {confirm: "Are you sure?"},
-      class: "btn btn-danger" %>
+  <h1>Welcome to your personal page, <%= @seller.contact_person %>! </h1>
+  <p>Company: <%= @seller.company_name %></p>
+  <p>Current email: <%= @seller.email %></p>
+  <%= link_to "Correct your data", edit_seller_path(@seller), class: "btn btn-primary" %>
+
+  <h3>Find an overview of your products below:</h3>
+  <% @seller.products.each do |product| %>
+    <div class="card card-wrapper card-text-block">
+      <%= product.name %>
+      <%= product.amount %>
+      <%= product.delivery_option %>
+      <%= product.stars %>
+      <div><%= link_to "View", seller_product_path(@seller, product), class: "btn btn-primary" %>
+      <%= link_to "Edit", edit_seller_product_path(@seller, product), class: "btn btn-primary" %>
+      <%= link_to "Delete", seller_product_path(@seller, product),
+        method: :delete,
+        data: {confirm: "Are you sure?"},
+        class: "btn btn-danger" %>
+      </div>
     </div>
-  </div>
-<% end %>
-<%= link_to "Add a new product", new_seller_product_path(@seller), class: "btn btn-primary" %>
+  <% end %>
+  <%= link_to "Add a new product", new_seller_product_path(@seller), class: "btn btn-primary" %>
 
 
-<h3>Find your most recent orders below:</h3>
-<% @seller.orders.each do |order| %>
-  <div class="card card-wrapper card-text-block">
-    <h3><%= order.product.name %></h3>
-    <p>Size: <%= order.size %></p>
-    <p>Customer: <%= order.user.first_name  %> <%= order.user.last_name %></p>
-    <p>Order date: <%= order.created_at %></p>
-    <%= link_to "View", seller_product_order_path(@seller, order.product, order), class: "btn btn-primary" %>
-  </div>
+  <h3>Find your most recent orders below:</h3>
+  <% @seller.orders.each do |order| %>
+    <div class="card card-wrapper card-text-block">
+      <h3><%= order.product.name %></h3>
+      <p>Size: <%= order.size %></p>
+      <p>Customer: <%= order.user.first_name  %> <%= order.user.last_name %></p>
+      <p>Order date: <%= order.created_at %></p>
+      <%= link_to "View", seller_product_order_path(@seller, order.product, order), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+<% else %>
+
+<h1>Please note you are not authorised to view this page.</h1>
+
 <% end %>

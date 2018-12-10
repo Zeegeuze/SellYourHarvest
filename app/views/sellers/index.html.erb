@@ -1,3 +1,5 @@
+<% if current_user.email == "wouter_verhaeghe@hotmail.com" %>
+
 <h1>Overview of all sellers</h1>
 
 <% @sellers.each do |seller| %>
@@ -15,4 +17,7 @@
       class: "btn btn-danger" %>
     </div>
   </div>
+  <% end %>
+<% else %>
+  <h1>Please note you are not authorised to view this page.</h1>
 <% end %>

@@ -8,29 +8,32 @@
       <% end %>
       <% (5 - @product.stars).times do %>
         <span class="fa fa-star"></span>
-      <% end %></h1>
-  <% end %>
+      <% end %>
+    <% end %>
+  </h1>
 </div>
 <p><%= @product.amount %></p>
 <p><%= @product.delivery_option %></p>
 
-<h3>Add a rating: </h3>
-<%= simple_form_for [@seller, @product] do |f| %>
-  <%= f.input_field :stars, as: :radio_buttons, collection: 1..5, style: :inline %>
-  <%= f.button :submit %>
+<% if user_signed_in? %>
+  <h3>Add a rating: </h3>
+  <%= simple_form_for [@seller, @product] do |f| %>
+    <%= f.input_field :stars, as: :radio_buttons, collection: 1..5, style: :inline %>
+    <%= f.button :submit %>
+  <% end %>
+
+  <% if current_user.email == @seller.email %>
+    <div>
+      <%= link_to "Edit", edit_seller_product_path(@seller, @product), class: "btn btn-primary" %>
+      <%= link_to "- Delete this item", seller_product_path(@seller, @product),
+        method: :delete,
+        data: {confirm: "Are you sure?"},
+        class: "btn btn-danger" %>
+      <%= link_to "View all your orders", seller_products_path(@seller), class: "btn btn-primary" %>
+      <%= link_to "+ Add a product", new_seller_product_path(@seller), class: "btn btn-primary" %>
+    </div>
+  <% end %>
 <% end %>
-
-</div>
-
-<div>
-  <%= link_to "Edit", edit_seller_product_path(@seller, @product), class: "btn btn-primary" %>
-  <%= link_to "- Delete this item", seller_product_path(@seller, @product),
-    method: :delete,
-    data: {confirm: "Are you sure?"},
-    class: "btn btn-danger" %>
-  <%= link_to "View all your orders", seller_products_path(@seller), class: "btn btn-primary" %>
-  <%= link_to "+ Add a product", new_seller_product_path(@seller), class: "btn btn-primary" %>
-</div>
 
 <div>
   <%= link_to "Book this product", new_seller_product_order_path(@seller, @product), class: "btn btn-primary" %>

@@ -3,7 +3,6 @@
 <%= simple_form_for [@seller] do |f| %>
   <%= f.input :company_name, label: "Enter your company name" %>
   <%= f.input :contact_person, label: "Enter your contact person" %>
-  <%= f.input :email, label: "Enter your email" %>
   <%= f.input :address, label: "Enter your address" %>
   <%= f.button :submit %>
   <%= link_to "Back to the homepage", root_path, data: {confirm: "Are you sure? Your account will not be created!"}, class: "btn btn-primary" %>

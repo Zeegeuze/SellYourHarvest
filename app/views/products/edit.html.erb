@@ -1,10 +1,17 @@
-<h1>Edit your product</h1>
+<% if current_user.email == @seller.email %>
 
-<%= simple_form_for [@seller, @product] do |f| %>
-  <%= f.input :name, label: "Enter the name of the product" %>
-  <%= f.input :amount, label: "Enter the amount" %>
-  <%= f.input :delivery_option, as: :select, collection: ["Pick up", "Pick on the field", "Delivery"] %>
-  <%= f.button :submit %>
-  <%= link_to "Back to your products", seller_products_path(@seller), class: "btn btn-primary" %>
+  <h1>Edit your product</h1>
+
+  <%= simple_form_for [@seller, @product] do |f| %>
+    <%= f.input :name, label: "Enter the name of the product" %>
+    <%= f.input :amount, label: "Enter the amount" %>
+    <%= f.input :delivery_option, as: :select, collection: ["Pick up", "Pick on the field", "Delivery"] %>
+    <%= f.button :submit %>
+    <%= link_to "Back to your products", seller_products_path(@seller), class: "btn btn-primary" %>
+  <% end %>
+
+<% else %>
+
+<h1>Please note you are not authorised to view this page.</h1>
+
 <% end %>
-

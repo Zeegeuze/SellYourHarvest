@@ -2,6 +2,10 @@ This will become the homepage
 
 <div>
   <% @products.each do  | product | %>
+    <% if params[:term].present? %>
+      <%= link_to "Back to all products", root_path(current_user), class: "button-blue button right-top-navbar-btn" %>
+    <% end %>
+
     <h3><%= product.name %> <%= product.stars %></h3>
     <p>Total available: <%= product.amount %></p>
     <p>From: <%= product.seller.company_name %></p>

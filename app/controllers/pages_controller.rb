@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @products = Product.all
+    @products = Product.where('name LIKE ?', "%#{params[:term]}%")
   end
 
   def TQ

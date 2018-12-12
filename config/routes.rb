@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get 'T&Q', to: 'pages#TQ', as: :TQ
-  get 'FAQ', to: 'pages#FAQ', as: :FAQ
+  get 'FAQ', to: 'pages#FAQ', as: :faq
   get 'contact', to: 'pages#contact', as: :contact
   get 'about', to: 'pages#about', as: :about
 end

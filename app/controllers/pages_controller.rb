@@ -9,7 +9,8 @@ class PagesController < ApplicationController
   def TQ
   end
 
-  def FAQ
+  def faq
+
   end
 
   def contact

@@ -1,23 +1,35 @@
 <%= render 'shared/banner' %>
 
-<div>
+<div class="row">
   <% @products.each do  | product | %>
+
     <% if params[:term].present? %>
       <%= link_to "Back to all products", root_path(current_user), class: "button-blue button right-top-navbar-btn" %>
     <% end %>
 
-    <h3><%= product.name %> <%= product.stars %></h3>
-    <p>Total available: <%= product.amount %></p>
-    <p>From: <%= product.seller.company_name %></p>
-    <div><%= link_to "View", seller_product_path(product.seller, product), class: "btn btn-primary"%></div>
-    <% if user_signed_in? %>
-      <div><%= link_to "Edit", edit_seller_product_path(product.seller, product), class: "btn btn-primary" %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card">
+        <h3 class="card-category"><%= product.name %> <%= product.stars %></h3>
+        <div class="card-amount"><%= product.amount %></div>
+        <div class="card-description">
+          <h2>Total available: <%= product.amount %></h2>
+          <p>From: <%= product.seller.company_name %></p>
+          <div><%= link_to "View", seller_product_path(product.seller, product), class: "btn btn-primary"%></div>
+          <% if user_signed_in? %>
+            <div>
+              <div><%= link_to "Edit", edit_seller_product_path(product.seller, product), class: "btn btn-primary" %>
+              </div>
+              <div><%= link_to "Delete", seller_product_path(product.seller, product),
+                method: :delete,
+                data: {confirm: "Are you sure?"},
+                class: "btn btn-danger" %>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
       </div>
-      <div><%= link_to "Delete", seller_product_path(product.seller, product),
-        method: :delete,
-        data: {confirm: "Are you sure?"},
-        class: "btn btn-danger" %>
-    <% end %>
     </div>
   <% end %>
 </div>
+

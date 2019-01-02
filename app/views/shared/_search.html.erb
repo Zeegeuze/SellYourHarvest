@@ -1,5 +1,5 @@
 <div class="nav-bar-search-box">
   <%= form_tag(root_path(current_user), method: :get) do %>
-  <%= text_field_tag :term, params[:term], placeholder: 'Search for products...', class: "search-box-field" %>
+  <%= text_field_tag :term, params[:term], placeholder: 'Search for products...', class: "search-box-field", size: 50 %>
   <% end %>
 </div>

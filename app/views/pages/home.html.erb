@@ -9,24 +9,21 @@
 
     <div class="col-xs-12 col-sm-4">
       <div class="card">
-        <h3 class="card-category"><%= product.name %> <%= product.stars %></h3>
+        <h3 class="card-category">Category</h3>
         <div class="card-amount"><%= product.amount %></div>
         <div class="card-description">
-          <h2>Total available: <%= product.amount %></h2>
+          <h2><%= product.name %> <%= product.stars %></h2>
           <p>From: <%= product.seller.company_name %></p>
-          <div><%= link_to "View", seller_product_path(product.seller, product), class: "btn btn-primary"%></div>
-          <% if user_signed_in? %>
-            <div>
-              <div><%= link_to "Edit", edit_seller_product_path(product.seller, product), class: "btn btn-primary" %>
-              </div>
-              <div><%= link_to "Delete", seller_product_path(product.seller, product),
-                method: :delete,
-                data: {confirm: "Are you sure?"},
-                class: "btn btn-danger" %>
-              </div>
+          <div class="links-card">
+            <%= link_to "View", seller_product_path(product.seller, product), class: "btn btn-primary"%>
+            <% if user_signed_in? %>
+              <%= link_to "Edit", edit_seller_product_path(product.seller, product), class: "btn btn-primary" %>
+              <%= link_to "Delete", seller_product_path(product.seller, product),
+                  method: :delete,
+                  data: {confirm: "Are you sure?"},
+                  class: "btn btn-danger" %>
             </div>
           <% end %>
-
         </div>
       </div>
     </div>

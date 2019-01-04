@@ -2,10 +2,10 @@
 
 one:
   size: 1
-  customer: one
-  product: one
+  user_id: one
+  product_id: one
 
 two:
   size: 1
-  customer: two
-  product: two
+  user_id: two
+  product_id: two

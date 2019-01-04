@@ -1,23 +1,23 @@
-require 'test_helper'
+require 'application_system_test_case'
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
   test "should get T&Q" do
-    get pages_T&Q_url
+    get "/T&Q"
     assert_response :success
   end
 
   test "should get FAQ" do
-    get pages_FAQ_url
+    get "/FAQ"
     assert_response :success
   end
 
   test "should get contact" do
-    get pages_contact_url
+    get "/contact"
     assert_response :success
   end
 
   test "should get about" do
-    get pages_about_url
+    get "/about"
     assert_response :success
   end
 

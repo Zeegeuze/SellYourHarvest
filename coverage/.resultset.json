@@ -1,0 +1,216 @@
+{
+  "MiniTest": {
+    "coverage": {
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/test/controllers/pages_controller_test.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/test/application_system_test_case.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/test/controllers/products_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/test/controllers/sellers_controller_test.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/test/controllers/users_controller_test.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/test/models/order_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/test/models/product_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/test/models/seller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/test/models/user_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/app/models/order.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/app/models/seller.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/app/models/product.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/app/controllers/pages_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/app/controllers/application_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        0,
+        null,
+        null,
+        0,
+        null,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/app/helpers/customers_helper.rb": [
+        1,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/app/helpers/orders_helper.rb": [
+        1,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/app/helpers/pages_helper.rb": [
+        1,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/app/helpers/products_helper.rb": [
+        1,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/app/helpers/sellers_helper.rb": [
+        1,
+        null
+      ],
+      "/home/wouter/code/Zeegeuze/SellYourHarvest/app/helpers/users_helper.rb": [
+        1,
+        null
+      ]
+    },
+    "timestamp": 1546596920
+  }
+}
